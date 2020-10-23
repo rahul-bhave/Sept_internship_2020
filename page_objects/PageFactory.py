@@ -10,13 +10,7 @@ Pages implemented so far:
 5. Bitcoin price page
 """
 
-from page_objects.zero_mobile_page import Zero_Mobile_Page
-from page_objects.zero_page import Zero_Page
-from page_objects.tutorial_main_page import Tutorial_Main_Page
-from page_objects.tutorial_redirect_page import Tutorial_Redirect_Page
-from page_objects.contact_page import Contact_Page
-from page_objects.bitcoin_price_page import Bitcoin_Price_Page
-from page_objects.bitcoin_main_page import Bitcoin_Main_Page
+from page_objects.Main_Page import Main_Page
 import conf.base_url_conf
 
 
@@ -28,18 +22,10 @@ class PageFactory():
         page_name = page_name.lower()
         if page_name in ["zero","zero page","agent zero"]:
             test_obj = Zero_Page(base_url=base_url)
-        elif page_name in ["zero mobile","zero mobile page"]:
-            test_obj = Zero_Mobile_Page()
-        elif page_name == "main page":
-            test_obj = Tutorial_Main_Page(base_url=base_url)
-        elif page_name == "redirect":
-            test_obj = Tutorial_Redirect_Page(base_url=base_url)
-        elif page_name == "contact page":
-            test_obj = Contact_Page(base_url=base_url)
-        elif page_name == "bitcoin main page":
-            test_obj = Bitcoin_Main_Page()
-        elif page_name == "bitcoin price page":
-            test_obj = Bitcoin_Price_Page()
+        elif page_name == "main_page":
+            test_obj = Main_Page(base_url=base_url)
+
+         
         return test_obj
 
     get_page_object = staticmethod(get_page_object)
